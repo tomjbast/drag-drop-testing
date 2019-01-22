@@ -33,8 +33,6 @@ export function setEditingTrue() {
   }
 }
 
-
-
 export function setEditingFalse() {
   return {
     type: 'EDITING_FALSE'

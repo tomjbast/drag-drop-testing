@@ -8,8 +8,8 @@ const socket = openSocket('http://localhost:8000');
 
 class App extends React.Component {
 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
 
     socket.on('drag', data => { // this could be in middleware listening  "drag"
       this.props.updateBoardOrder(data)
@@ -21,7 +21,6 @@ class App extends React.Component {
 
       <DragDropContext onDragEnd = {(result) => {
         this.props.onDragEnd(result, this.props.state);
-       // this.emitDragToServer(this.props.storyBoardsOrder)
       }}>
 
         <Droppable droppableId="1">

@@ -6,6 +6,8 @@ class BoardModal extends React.Component {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.setWrapperRef = this.setWrapperRef.bind(this);
 
     this.state = {
       storyBoards: props.storyBoards
@@ -23,11 +25,31 @@ class BoardModal extends React.Component {
     });
   }
 
+  componentWillMount() {
+    document.addEventListener('mousedown', this.handleClick, false)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClick, false)
+  }
+
+  setWrapperRef(node){
+    this.wrapperRef = node;
+  }
+
+  handleClick(event){
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+      alert('You clicked outside of me!');
+      return
+    }
+
+  }
+
   render() {
 
     const nonEditable =
-      <div className = "modal">
-        <div className ="modal-board">
+      <div className = "modal" >
+        <div className ="modal-board" ref= {this.setWrapperRef}>
 
           <div className ="modal-title">
             <h3>{this.props.storyBoards[this.props.boardClicked].title}</h3>
@@ -48,12 +70,13 @@ class BoardModal extends React.Component {
 
     const editable =
         <div className = "modal">
-          <div className ="modal-board">
+          <div className ="modal-board" ref= {this.setWrapperRef}>
 
             <form onSubmit ={(event) => {
               event.preventDefault();
               this.props.updateStoryBoards(this.state.storyBoards);
-              this.props.setModalFalse()
+              this.props.setModalFalse();
+              this.props.setEditingFalse()
             }} className="modal-form">
 
               <div className="edit-title">
