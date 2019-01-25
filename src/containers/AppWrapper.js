@@ -8,6 +8,7 @@ export const mapStateToProps = (state) => {
     storyBoardsOrder: state.storyBoardsOrder,
     modal: state.modal,
     boardClicked: state.boardClicked,
+    editing: state.editing,
     state
   }
 };

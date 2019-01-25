@@ -1,7 +1,7 @@
 import React from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import BoardWrapper from "../containers/BoardWrapper";
-import BoardModalWrapper from "../containers/BoardModalWrapper";
+import ModalWrapper from "../containers/ModalWrapper";
 import openSocket from 'socket.io-client';
 const socket = openSocket('http://localhost:8000');
 
@@ -40,9 +40,9 @@ class App extends React.Component {
               }
             </div>
           )}
-        </Droppable>
+        </Droppable>scf
         {
-          this.props.modal ? <BoardModalWrapper board={this.props.boardClicked}/> : null
+          this.props.modal ? <ModalWrapper/> : null
         }
 
       </DragDropContext>

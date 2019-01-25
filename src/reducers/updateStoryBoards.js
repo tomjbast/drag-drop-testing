@@ -1,11 +1,78 @@
 const storyboards = {
-    1: {id:1, title: "Storyboard 1", requester:"Tom", desc:"A String of the details of the task/board 1"},
-    2: {id:2, title: "Storyboard 2", requester:"Dan", desc:"A String of the details of the task/board 2"},
-    3: {id:3, title: "Storyboard 3", requester:"Jon", desc:"A String of the details of the task/board 3"},
-    4: {id:4, title: "Storyboard 4", requester:"Marc", desc:"A String of the details of the task/board 4"},
-    5: {id:5, title: "Storyboard 5", requester:"Jim", desc:"A String of the details of the task/board 5"},
-    6: {id:6, title: "Storyboard 6", requester:"Dave", desc:"A String of the details of the task/board 6"},
-  };
+  1: {
+    id:1,
+    front: {title: "Storyboard 1", requester:"Tom", desc:"A String of the details of the task/board 1"},
+    back: [
+      {id:1, item: "thing 1"},
+      {id:2, item: "thing 2"},
+      {id:3, item: "thing 3"},
+      {id:4, item: "thing 4"},
+      {id:5, item: "thing 5"},
+      {id:6, item: "thing 6"}
+      ]
+  },
+  2: {
+    id:2,
+    front: {title: "Storyboard 2", requester:"Dan", desc:"A String of the details of the task/board 2"},
+    back: [
+      {id:1, item: "thing 1"},
+      {id:2, item: "thing 2"},
+      {id:3, item: "thing 3"},
+      {id:4, item: "thing 4"},
+      {id:5, item: "thing 5"},
+      {id:6, item: "thing 6"}
+    ]
+  },
+  3: {
+    id:3,
+    front: {title: "Storyboard 3", requester:"Jon", desc:"A String of the details of the task/board 3"},
+    back: [
+      {id:1, item: "thing 1"},
+      {id:2, item: "thing 2"},
+      {id:3, item: "thing 3"},
+      {id:4, item: "thing 4"},
+      {id:5, item: "thing 5"},
+      {id:6, item: "thing 6"}
+    ]
+  },
+  4: {
+    id:4,
+    front: {title: "Storyboard 4", requester:"Marc", desc:"A String of the details of the task/board 4"},
+    back: [
+      {id:1, item: "thing 1"},
+      {id:2, item: "thing 2"},
+      {id:3, item: "thing 3"},
+      {id:4, item: "thing 4"},
+      {id:5, item: "thing 5"},
+      {id:6, item: "thing 6"}
+    ]
+  },
+  5: {
+    id:5,
+    front: {title: "Storyboard 5", requester:"Timmy", desc:"A String of the details of the task/board 5"},
+    back: [
+      {id:1, item: "thing 1"},
+      {id:2, item: "thing 2"},
+      {id:3, item: "thing 3"},
+      {id:4, item: "thing 4"},
+      {id:5, item: "thing 5"},
+      {id:6, item: "thing 6"}
+    ]
+  },
+  6: {
+    id:6,
+    front: {title: "Storyboard 6", requester:"Bob", desc:"A String of the details of the task/board 6"},
+    back: [
+      {id:1, item: "thing 1"},
+      {id:2, item: "thing 2"},
+      {id:3, item: "thing 3"},
+      {id:4, item: "thing 4"},
+      {id:5, item: "thing 5"},
+      {id:6, item: "thing 6"}
+    ]
+  }
+};
+
 /* JONCOM
 // Again, if these here storyboards are stored in an array, the order would be implicit in the datastructure, and you
 // would probably have a more stable code base over all as it grows larger.
@@ -28,5 +95,3 @@ function updateStoryBoards(state = storyboards, action){
 }
 
 export default updateStoryBoards;
-
-

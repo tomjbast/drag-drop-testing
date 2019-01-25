@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import BoardModal from '../components/BoardModal.js';
-import {updateStoryBoards, setBoardClicked, setModalFalse, setEditingFalse} from "../actions";
+import EditableBoardModal from '../components/EditableBoardModal.js';
+import {updateStoryBoards, setModalFalse, setEditingFalse} from "../actions";
 
 export const mapStateToProps = (state) => {
   return {
@@ -13,7 +13,6 @@ export const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   setModalFalse,
   setEditingFalse,
-  setBoardClicked,
   updateStoryBoards
 };
 
@@ -21,4 +20,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BoardModal);
+)(EditableBoardModal);

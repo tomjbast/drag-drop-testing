@@ -18,15 +18,15 @@ function Board({storyBoards, setModalTrue, setBoardClicked, setEditingFalse, set
           >
 
             <div className ="board-title">
-              <h3>{board.title}</h3>
+              <h3>{board.front.title}</h3>
             </div>
 
             <div className ="requester">
-              <h4>{board.requester}</h4>
+              <h4>{board.front.requester}</h4>
             </div>
 
             <div className ="board-desc">
-              <h6>{board.desc}</h6>
+              <h6>{board.front.desc}</h6>
             </div>
 
             <button onClick={() => {
@@ -39,9 +39,7 @@ function Board({storyBoards, setModalTrue, setBoardClicked, setEditingFalse, set
           </div>
         )}
       </Draggable>
-
     );
-
 }
 
 export default Board
