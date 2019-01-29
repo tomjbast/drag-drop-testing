@@ -75,17 +75,17 @@ class EditableBoardModal extends React.Component {
 
             <div className="edit-title">
               User Story Title:
-              <input onChange={this.handleChange} type="text" name="title" defaultValue={board.front.title} />
+              <input onChange={this.handleChange} type="text" name="title" value={board.front.title} />
             </div>
 
             <div className="edit-requester">
               User Story Requester:
-              <input onChange={this.handleChange} type="text" name="requester" defaultValue={board.front.requester} />
+              <input onChange={this.handleChange} type="text" name="requester" value={board.front.requester} />
             </div>
 
             <div className="edit-desc">
               Description:
-              <input onChange={this.handleChange} type="text" name="desc" defaultValue={board.front.desc} />
+              <input onChange={this.handleChange} type="text" name="desc" value={board.front.desc} />
             </div>
 
             <button type="submit" className="save-button">Save and Close</button>
@@ -110,7 +110,7 @@ class EditableBoardModal extends React.Component {
             <ul>
               {
                 board.back.map((acceptanceItem, index) => {
-                  return <input key = {acceptanceItem.id} name={index} onChange={this.handleChange} type="text" defaultValue={acceptanceItem.item} />
+                  return <input key = {acceptanceItem.id} name={index} onChange={this.handleChange} type="text" value={acceptanceItem.item} />
                 })
               }
             </ul>

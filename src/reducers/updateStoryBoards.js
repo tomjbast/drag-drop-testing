@@ -86,6 +86,7 @@ const storyboards = {
 
 
 function updateStoryBoards(state = storyboards, action){
+
   switch(action.type){
     case 'UPDATE_STORYBOARDS':
       return action.storyBoards;

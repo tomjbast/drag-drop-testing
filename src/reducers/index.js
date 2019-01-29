@@ -4,6 +4,8 @@ import updateBoardClickedId from './updateBoardClickedId'
 import updateEditingBoolean from './updateEditingBoolean'
 import updateStoryBoardsOrder from './updateStoryBoardsOrder'
 import updateStoryBoards from './updateStoryBoards'
+import updateArchivedCards from './updateArchivedCards'
+import updateNewBoard from "./updateNewBoard";
 
 /* JONCOM
 // Since reducers are more like "data stores" I don't understand why they're called split into so many
@@ -19,5 +21,7 @@ export default combineReducers({
   boardClicked: updateBoardClickedId,
   editing: updateEditingBoolean,
   storyBoardsOrder: updateStoryBoardsOrder,
-  storyBoards: updateStoryBoards
+  storyBoards: updateStoryBoards,
+  archive: updateArchivedCards,
+  newBoard: updateNewBoard
 });
