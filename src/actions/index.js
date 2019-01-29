@@ -60,6 +60,7 @@ export function setNewBoardFalse() {
 }
 
 export function addToArchiveArray(boardId, archiveArray){
+
   let archiveArrayCopy = archiveArray.slice(0);
   archiveArrayCopy.push(boardId);
 
