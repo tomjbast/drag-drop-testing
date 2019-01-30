@@ -9,6 +9,7 @@ class EditableBoardModal extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.flipCard = this.flipCard.bind(this);
+    this.addNewCriteria = this.addNewCriteria.bind(this);
 
     this.state = {
       storyBoards: props.storyBoards,
@@ -58,6 +59,22 @@ class EditableBoardModal extends React.Component {
     this.setState(state => ({
       boardFront: !state.boardFront
     }))
+  }
+
+  addNewCriteria(){
+
+    let storyboardsCopy =  JSON.parse(JSON.stringify(this.state.storyBoards));
+    const board = storyboardsCopy[this.props.boardClicked];
+    const arrayOfAcceptanceCritIds = board.back.map(acceptanceCrit => acceptanceCrit.id);
+    const largestId = Math.max(...arrayOfAcceptanceCritIds);
+    const newId = largestId +1;
+
+    board.back.push({id:newId, item:""});
+
+    this.setState({
+      storyBoards: storyboardsCopy
+    });
+
   }
 
   render() {
@@ -117,6 +134,7 @@ class EditableBoardModal extends React.Component {
           </div>
           <button type="submit" className="save-button">Save and Close</button>
           </form>
+          <button type="button" onClick = {this.addNewCriteria} className="add-new">Add New Criteria</button>
           <button type="button" onClick={this.flipCard}>Flip</button>
         </div>
       </div>

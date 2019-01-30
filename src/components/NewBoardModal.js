@@ -12,7 +12,6 @@ class NewBoardModal extends React.Component {
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.addNewCriteria = this.addNewCriteria.bind(this);
     this.flipCard = this.flipCard.bind(this);
-    this.flipCard = this.flipCard.bind(this);
 
     this.state = {
       boardFront: true,
