@@ -15,7 +15,8 @@ export const mapStateToProps = (state) => { // this merges state into props
   return {
     storyBoards: state.storyBoards,
     storyBoardsOrder: state.storyBoardsOrder,
-    archiveArray: state.archive
+    archiveArray: state.archive,
+    grid: state.grid
   }
 };
 

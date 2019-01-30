@@ -59,6 +59,12 @@ export function setNewBoardFalse() {
   }
 }
 
+export function setGridView(){
+  return {
+    type: 'GRID_UPDATE'
+  }
+}
+
 export function addToArchiveArray(boardId, archiveArray){
 
   let archiveArrayCopy = archiveArray.slice(0);

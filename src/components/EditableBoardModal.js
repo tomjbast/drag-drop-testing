@@ -9,6 +9,7 @@ class EditableBoardModal extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.flipCard = this.flipCard.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.addNewCriteria = this.addNewCriteria.bind(this);
 
     this.state = {
@@ -18,7 +19,6 @@ class EditableBoardModal extends React.Component {
   }
 
   handleChange(e){
-    // below line is more load heavy than importing a lib to do our deep object clone but fine for our purposes
     let storyboardsCopy =  JSON.parse(JSON.stringify(this.state.storyBoards));
     let boardToUpdate = storyboardsCopy[this.props.boardClicked];
 
@@ -55,6 +55,25 @@ class EditableBoardModal extends React.Component {
     }
   }
 
+  handleSubmit(event) {
+
+    event.preventDefault();
+
+
+    // below ensures that only filled in criteria will be saved
+    let storyBoardsCopy =  JSON.parse(JSON.stringify(this.state.storyBoards));
+    const board = storyBoardsCopy[this.props.boardClicked];
+    board.back = board.back.filter(criteria => criteria.item.length > 0);
+
+    this.setState({
+      storyBoards: storyBoardsCopy
+    }, () => {
+      this.props.updateStoryBoards(this.state.storyBoards);
+      this.props.setModalFalse();
+      this.props.setEditingFalse()
+    })
+  }
+
   flipCard(){
     this.setState(state => ({
       boardFront: !state.boardFront
@@ -70,6 +89,17 @@ class EditableBoardModal extends React.Component {
     const newId = largestId +1;
 
     board.back.push({id:newId, item:""});
+
+    this.setState({
+      storyBoards: storyboardsCopy
+    });
+
+  }
+
+  deleteCriteria(id){
+    let storyboardsCopy =  JSON.parse(JSON.stringify(this.state.storyBoards));
+    let board = storyboardsCopy[this.props.boardClicked];
+    board.back = board.back.filter(criteria => criteria.id !== id);
 
     this.setState({
       storyBoards: storyboardsCopy
@@ -116,18 +146,19 @@ class EditableBoardModal extends React.Component {
     const editBack = (
       <div className = "modal">
         <div className ="modal-board" ref= {this.setWrapperRef}>
-          <form onSubmit ={(event) => {
-            event.preventDefault();
-            this.props.updateStoryBoards(this.state.storyBoards);
-            this.props.setModalFalse();
-            this.props.setEditingFalse()
-          }} className="modal-form">
+          <form onSubmit ={this.handleSubmit} className="modal-form">
           <h3>Acceptance Criteria</h3>
           <div>
             <ul>
               {
                 board.back.map((acceptanceItem, index) => {
-                  return <input key = {acceptanceItem.id} name={index} onChange={this.handleChange} type="text" value={acceptanceItem.item} />
+                  const id = acceptanceItem.id;
+                  return (
+                    <div key = {id} >
+                      <input name={index} onChange={this.handleChange} type="text" value={acceptanceItem.item} />
+                      <button type="button" onClick={() => this.deleteCriteria(id)}>X</button>
+                    </div>
+                      )
                 })
               }
             </ul>

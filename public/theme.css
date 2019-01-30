@@ -21,6 +21,11 @@ h3, h4, h6 {
     flex-wrap: wrap;
 }
 
+.button_wrapper--grid {
+    display: flex;
+    padding-right: 10px;
+}
+
 .board {
     margin: 5px 5px 0px 5px;
     border: 1px solid #0f0f0f;
@@ -29,12 +34,21 @@ h3, h4, h6 {
     background-color: white;
 }
 
-.board-clickable {
+.board-clickable{
+    flex: 2
+}
 
+.board--grid {
+    display: flex;
+    justify-content: space-between;
 }
 
 .board-title, .board-desc, .requester {
     padding: 5px 5px 5px 5px;
+}
+
+.board-desc--grid, .requester--grid {
+    display: none
 }
 
 .modal {

@@ -1,7 +1,9 @@
 import React from 'react'
 import {Draggable} from 'react-beautiful-dnd'
+import cx from 'classnames'
 
-function Board({storyBoards,
+function Board({
+                 storyBoards,
                  addToArchiveArray,
                  archiveArray,
                  setModalTrue,
@@ -11,12 +13,34 @@ function Board({storyBoards,
                  setEditingTrue,
                  board,
                  index,
-                 deleteCard}
-                 ){
+                 deleteCard,
+                 grid}) {
+
+  const boardCss = cx('board', {
+    'board--grid': grid
+  });
+
+  const title = cx('board-title', {
+    'board-title--grid': grid
+  });
+
+  const requester = cx('requester', {
+    'requester--grid': grid
+  });
+
+  const description = cx('board-desc', {
+    'board-desc--grid': grid
+  });
+
+  const buttons = cx('button_wrapper', {
+    'button_wrapper--grid': grid
+  });
+
+
     return (
       <Draggable draggableId ={board.id} index={index}>
         {(provided) => (
-          <div className ="board"
+          <div className ={boardCss}
                {...provided.draggableProps}
                {...provided.dragHandleProps}
                ref={provided.innerRef}>
@@ -26,20 +50,21 @@ function Board({storyBoards,
                    setBoardClicked(board.id)
                  }}>
 
-              <div className ="board-title">
+              <div className ={title}>
                 <h3>{board.front.title}</h3>
               </div>
 
-              <div className ="requester">
+              <div className ={requester}>
                 <h4>{board.front.requester}</h4>
               </div>
 
-              <div className ="board-desc">
+              <div className ={description}>
                 <h6>{board.front.desc}</h6>
               </div>
 
 
             </div>
+            <div className={buttons}>
             <button onClick={() => {
               setEditingTrue();
               setBoardClicked(board.id);
@@ -50,6 +75,7 @@ function Board({storyBoards,
               deleteCard(board.id, storyBoardsOrder);
               addToArchiveArray(board.id, archiveArray)
             }}>Archive</button>
+            </div>
           </div>
         )}
       </Draggable>

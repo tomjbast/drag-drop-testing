@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import App from '../components/App.js';
-import {onDragEnd, setNewBoardTrue, updateBoardOrder} from "../actions";
+import {onDragEnd, setGridView, setNewBoardTrue, updateBoardOrder} from "../actions";
 
 export const mapStateToProps = (state) => {
   return {
@@ -10,6 +10,7 @@ export const mapStateToProps = (state) => {
     boardClicked: state.boardClicked,
     editing: state.editing,
     newBoard: state.newBoard,
+    grid: state.grid,
     state
   }
 };
@@ -17,7 +18,8 @@ export const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   onDragEnd,
   updateBoardOrder,
-  setNewBoardTrue
+  setNewBoardTrue,
+  setGridView
 };
 
 export default connect(

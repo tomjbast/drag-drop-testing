@@ -69,9 +69,7 @@ class NewBoardModal extends React.Component {
 
   handleClickOutsideModal(event){
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      this.props.updateStoryBoards(this.state.storyBoards); //default is to save changes if you click out of modal area
-      this.props.setModalFalse();
-      this.props.setEditingFalse();
+      this.handleSubmit(event);
     }
   }
 
@@ -145,7 +143,7 @@ handleBackChange(e){
     const editBack = (
       <div className = "modal">
         <div className ="modal-board" ref= {this.setWrapperRef}>
-          <form onSubmit ={(event) => {this.handleSubmit(event)}} className="modal-form">
+          <form onSubmit ={(event) => this.handleSubmit(event)} className="modal-form">
           <h3>Acceptance Criteria</h3>
           <div>
             {
