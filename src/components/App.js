@@ -19,10 +19,9 @@ class App extends React.Component {
   }
 
   render() {
-    const allBoards = cx('all-boards', {
-      'all_boards--grid': this.props.grid
-    });
+    const allBoards = cx('all-boards', {'all_boards--grid': this.props.grid});
 
+    console.log(this.props);
 
     return (
       <React.Fragment>

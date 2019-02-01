@@ -13,14 +13,6 @@ export function setModalFalse() {
   }
 }
 
-export function updateStoryBoards(editedStoryBoards){
-
-  return {
-    type: 'UPDATE_STORYBOARDS',
-    storyBoards: editedStoryBoards
-  }
-}
-
 export function setBoardClicked(boardId) {
   return {
     type: 'BOARD_CLICKED',
@@ -109,9 +101,10 @@ export function onDragEnd(result, state){
   }
 }
 
-export function addItemToArray(boardOrder){
-  return (dispatch) => {
-    dispatch(updateBoardOrder(boardOrder))
+export function updateStoryBoards(editedStoryBoards){
+  return {
+    type: 'UPDATE_STORYBOARDS',
+    storyBoards: editedStoryBoards
   }
 }
 
@@ -127,8 +120,9 @@ export function addStoryBoard(originalStoryBoards, boardToAdd, storyBoardsOrderA
   console.log(originalStoryBoardsCopy);
 
   return (dispatch) => {
+    dispatch(updateBoardOrder(arrayCopy));
     dispatch(updateStoryBoards(originalStoryBoardsCopy));
-    dispatch(addItemToArray(arrayCopy))
+
   }
 
 }

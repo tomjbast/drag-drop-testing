@@ -58,8 +58,6 @@ class EditableBoardModal extends React.Component {
   handleSubmit(event) {
 
     event.preventDefault();
-
-
     // below ensures that only filled in criteria will be saved
     let storyBoardsCopy =  JSON.parse(JSON.stringify(this.state.storyBoards));
     const board = storyBoardsCopy[this.props.boardClicked];

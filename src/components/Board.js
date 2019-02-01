@@ -16,26 +16,11 @@ function Board({
                  deleteCard,
                  grid}) {
 
-  const boardCss = cx('board', {
-    'board--grid': grid
-  });
-
-  const title = cx('board-title', {
-    'board-title--grid': grid
-  });
-
-  const requester = cx('requester', {
-    'requester--grid': grid
-  });
-
-  const description = cx('board-desc', {
-    'board-desc--grid': grid
-  });
-
-  const buttons = cx('button_wrapper', {
-    'button_wrapper--grid': grid
-  });
-
+  const boardCss = cx('board', {'board--grid': grid});
+  const title = cx('board-title', {'board-title--grid': grid});
+  const requester = cx('requester', {'requester--grid': grid});
+  const description = cx('board-desc', {'board-desc--grid': grid});
+  const buttons = cx('button_wrapper', {'button_wrapper--grid': grid});
 
     return (
       <Draggable draggableId ={board.id} index={index}>

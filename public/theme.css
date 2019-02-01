@@ -27,7 +27,7 @@ h3, h4, h6 {
 }
 
 .board {
-    margin: 5px 5px 0px 5px;
+    margin: 5px 5px 0 5px;
     border: 1px solid #0f0f0f;
     width: 100%;
     border-radius: 4px;
