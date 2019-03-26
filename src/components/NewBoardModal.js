@@ -97,12 +97,7 @@ class NewBoardModal extends React.Component {
 handleBackChange(e){
 
   let newBoardCopy = JSON.parse(JSON.stringify(this.state.newBoard));
-
   newBoardCopy.back[e.target.name].item = e.target.value;
-
-  // let formValue = e.target.value;
-  // console.log(e.target.value);
-  // newBoardCopy.back.push(e.target.value);
 
   this.setState({
     newBoard: newBoardCopy
